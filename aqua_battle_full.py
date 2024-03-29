@@ -300,14 +300,15 @@ def check_crash(table):
 
     # if not 'alive' ship parts around, ship is crashed
     if 'S' not in [table[cell] for cell in around_ship]:
+        time.sleep(1)
         if pc_move:  # pc crashed your ship
-            print('pc crashed your ship!')
+            print('\npc crashed your ship!')
             # clean_area_around(ship, your_table)  # not needed?
             clean_area_around(ship, pc_notes)
             pc_hitted_ship.clear()
             return True
         else:  # player crashed pc ship
-            print('You crashed a ship!')
+            print('\nYou crashed a ship!')
             clean_area_around(ship, player_notes)
             # player_notes.update({ship_part: 'X' for ship_part in pc_hitted_ship})  # wtf? not needed???
             # fix this
@@ -317,10 +318,12 @@ def check_crash(table):
 
 def check_win():
     if 'S' not in your_table.values():
-        print('Machine unbeatable again! Machine wins!')
+        time.sleep(1)
+        print('\nMachine unbeatable again! Machine wins!')
         return True
     if 'S' not in pc_table.values():
-        print("You've made it! You win!")
+        time.sleep(1)
+        print("\nYou've made it! You win!")
         return True
 
 
